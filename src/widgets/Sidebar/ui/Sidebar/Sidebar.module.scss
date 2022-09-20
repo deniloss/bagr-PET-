@@ -16,5 +16,10 @@
   width: 100%;
   bottom: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+}
+
+.langButton {
+  color: var(--inverted-primary-color)
 }
