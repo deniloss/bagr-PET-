@@ -3,6 +3,8 @@
   height: calc(100vh - var(--navbar-height));
   width: var(--sidebar-width);
   background: var(--inverted--bg-color);
+
+  transition: width 0.4s;
 }
 
 .collapsed {
@@ -12,7 +14,7 @@
 .switchers {
   position: absolute;
   width: 100%;
-  bottom: 30px;
+  bottom: 20px;
   display: flex;
   justify-content: center;
 }
