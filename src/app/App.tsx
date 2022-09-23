@@ -16,9 +16,9 @@ function App() {
                 <div className="content-page">
                     <Sidebar />
                     <AppRouter />
-                </div>
-            </Suspense>
-        </div>
+              </div>
+          </Suspense>
+      </div>
     );
 }
 

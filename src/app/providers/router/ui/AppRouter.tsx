@@ -13,13 +13,13 @@ const AppRouter = () => (
                         <Suspense fallback={<div>Loading...</div>}>
                             <div className="page-wrapper">
                                 {element}
-                            </div>
-                        </Suspense>
+                          </div>
+                      </Suspense>
                     )}
-                />
+              />
             ))}
-        </Routes>
-    </Suspense>
+      </Routes>
+  </Suspense>
 );
 
 export default AppRouter;
