@@ -1,4 +1,4 @@
-import {Navbar} from "./NavBar/Navbar";
+import { Navbar } from './NavBar/Navbar'
 
 export {
   Navbar
