@@ -1,6 +1,5 @@
 import React from 'react'
 import { classNames } from 'shared/lib/classNames'
-import cls from './LanguageSelector.module.scss'
 import { useTranslation } from 'react-i18next'
 import { Button } from 'shared/ui/Button/Button'
 
@@ -16,7 +15,7 @@ export const LanguageSelector = ({ className }: LanguageSelectorProps) => {
   }
 
   return (
-    <Button className={classNames(cls.LanguageSelector, {}, [className])}
+    <Button className={classNames('', {}, [className])}
       onClick={onTranslate}>
       {t('язык')}
     </Button>

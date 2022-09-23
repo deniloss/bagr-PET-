@@ -1,6 +1,5 @@
 import React from 'react'
 import { classNames } from 'shared/lib/classNames'
-import cls from './ThemeSelector.module.scss'
 import { Theme, useTheme } from 'app/providers/ThemeProvider'
 import DarkIcon from 'shared/assets/icons/theme-dark-icon.svg'
 import LightIcon from 'shared/assets/icons/theme-light-icon.svg'
@@ -15,7 +14,7 @@ export const ThemeSelector = ({ className }: ThemeSelectorProps) => {
 
   return (
     <Button
-      className={classNames(cls.ThemeSelector, {}, [className])}
+      className={classNames('', {}, [className])}
       onClick={toggleTheme}
     >
       {theme === Theme.DARK ? <DarkIcon /> : <LightIcon />}
