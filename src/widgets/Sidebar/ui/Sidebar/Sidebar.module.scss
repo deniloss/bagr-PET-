@@ -1,24 +1,25 @@
 .Sidebar {
-  position: relative;
-  height: calc(100vh - var(--navbar-height));
-  width: var(--sidebar-width);
-  background: var(--inverted-bg-color);
-  transition: width 0.4s;
+    height: calc(100vh - var(--navbar-height));
+    width: var(--sidebar-width);
+    background: var(--inverted-bg-color);
+
+    position: relative;
+    transition: width 0.3s;
 }
 
 .collapsed {
-  width: var(--sidebar-width-collapsed);
+    width: var(--sidebar-width-collapsed);
 }
 
 .switchers {
-  position: absolute;
-  width: 100%;
-  bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
 }
 
-.langButton {
-  color: var(--inverted-primary-color);
+.lang {
+    margin-top: 20px;
 }
