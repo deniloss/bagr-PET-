@@ -22,6 +22,10 @@ export default {
   moduleDirectories: [
     'node_modules',
   ],
+  modulePaths: [
+    '<rootDir>',
+    'src',
+  ],
   moduleFileExtensions: [
     'js',
     'jsx',
