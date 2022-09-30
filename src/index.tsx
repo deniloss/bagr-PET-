@@ -17,5 +17,3 @@ render(
 
   document.getElementById('root'),
 );
-
-// todo Починить переводы на проекте

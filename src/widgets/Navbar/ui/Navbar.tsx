@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { BugButton } from 'app/providers/ErrorBoundary/ui/BugButton/BugButton';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -15,12 +14,6 @@ export const Navbar = ({ className }: NavbarProps) => {
     <div className={classNames(cls.Navbar, {}, [className])}>
       <div className={cls.links}>
         <BugButton />
-        <AppLink theme={AppLinkTheme.SECONDARY} to="/" className={cls.mainLink}>
-          {t('Главная')}
-        </AppLink>
-        <AppLink theme={AppLinkTheme.RED} to="/about">
-          {t('О сайте')}
-        </AppLink>
       </div>
     </div>
   );
