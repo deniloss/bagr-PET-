@@ -67,4 +67,3 @@ export const Sidebar = ({ className }: SidebarProps) => {
     </div>
   );
 };
-// todo падают тесты (видео 23:30)
