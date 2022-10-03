@@ -1,7 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { BugButton } from 'app/providers/ErrorBoundary/ui/BugButton/BugButton';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Modal } from 'shared/ui/Modal/Modal';
+import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -10,10 +11,25 @@ interface NavbarProps {
 
 export const Navbar = ({ className }: NavbarProps) => {
   const { t } = useTranslation();
+  const [isAuthModal, setIsAuthModal] = React.useState(false);
+
+  const onToggleModal = React.useCallback(() => {
+    setIsAuthModal((prev) => !prev);
+  }, []);
+
   return (
     <div className={classNames(cls.Navbar, {}, [className])}>
+      <Modal isOpen={isAuthModal} onClose={onToggleModal}>
+        {t('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus deleniti eum incidunt laborum minima modi perspiciatis quo sint voluptate.\n')}
+      </Modal>
       <div className={cls.links}>
-        <BugButton />
+        <Button
+          theme={ThemeButton.CLEAR_INVERTED}
+          className={cls.links}
+          onClick={() => setIsAuthModal(true)}
+        >
+          {t('Войти')}
+        </Button>
       </div>
     </div>
   );
