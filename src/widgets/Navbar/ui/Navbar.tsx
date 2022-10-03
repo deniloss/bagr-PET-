@@ -20,7 +20,7 @@ export const Navbar = ({ className }: NavbarProps) => {
   return (
     <div className={classNames(cls.Navbar, {}, [className])}>
       <Modal isOpen={isAuthModal} onClose={onToggleModal}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus deleniti eum incidunt laborum minima modi perspiciatis quo sint voluptate.
+        {t('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus deleniti eum incidunt laborum minima modi perspiciatis quo sint voluptate.\n')}
       </Modal>
       <div className={cls.links}>
         <Button
