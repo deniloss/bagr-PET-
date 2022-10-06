@@ -13,5 +13,3 @@ export const Portal = (props: PortalProps) => {
   } = props;
   return createPortal(children, element);
 };
-
-// todo подключить стили для  порталов
