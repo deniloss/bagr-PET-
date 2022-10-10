@@ -19,7 +19,7 @@ export const LoginForm = ({ className }: LoginFormProps) => {
         placeholder={t('Ваше имя')}
       />
       <Input
-        type="text"
+        type="password"
         className={cls.inputs}
         placeholder={t('Пароль')}
       />
