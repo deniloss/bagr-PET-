@@ -1,11 +1,14 @@
 {
+  "": "",
   "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
     " Ab accusamus deleniti eum incidunt laborum minima modi perspiciatis quo sint voluptate": {
       "\n": "\n"
     }
   },
+  "Авторизация": "Авторизация",
   "Ваше имя": "Ваше имя",
   "Войти": "Войти",
+  "Выйти": "Выйти",
   "Главная": "Главная",
   "Главная страница": "Главная страница",
   "О сайте": "О сайте",
