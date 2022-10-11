@@ -16,5 +16,8 @@
   "уменьшить": "decrement",
   "О сайте": "About us",
   "Ваше имя": "Your name",
-  "Пароль": "Password"
+  "Пароль": "Password",
+  "Вы ввели неверный логин или пароль": "uncorrected username or password",
+  "Авторизация": "Authorization",
+  "Выйти": "Logout"
 }

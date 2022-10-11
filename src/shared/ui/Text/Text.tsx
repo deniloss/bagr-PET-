@@ -9,8 +9,8 @@ export enum TextTheme {
 
 interface TextProps {
   className?: string
-  title: string
-  text: string
+  title?: string
+  text?: string
   theme?: TextTheme
 }
 
@@ -19,7 +19,7 @@ export const Text = (props: TextProps) => {
     className,
     title,
     text,
-    theme,
+    theme = TextTheme.PRIMARY,
   } = props;
   return (
     <div className={classNames(cls.Text, { [cls[theme]]: true }, [className])}>
