@@ -56,6 +56,7 @@ export const LoginForm = ({ className }: LoginFormProps) => {
         onClick={onLoginClick}
         disabled={isLoading}
         theme={ThemeButton.OUTLINE}
+        rounded
       >
         {t('Войти')}
       </Button>
