@@ -5,9 +5,12 @@ import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginActions } from 'features/AuthByUsername';
-import { getLoginState } from 'features/AuthByUsername/model/selectors/getLoginState';
 import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/ loginByUsername';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { getLoginUsername } from 'features/AuthByUsername/model/selectors/getLoginUsername/getLoginUsername';
+import { getLoginPassword } from 'features/AuthByUsername/model/selectors/getLoginPassword/getLoginPassword';
+import { getLoginIsLoading } from 'features/AuthByUsername/model/selectors/getLoginIsLoading/getLoginIsLoading';
+import { getLoginError } from 'features/AuthByUsername/model/selectors/getLoginError/getLoginError';
 import cls from './LoginForm.module.scss';
 
 interface LoginFormProps {
@@ -17,9 +20,10 @@ interface LoginFormProps {
 export const LoginForm = ({ className }: LoginFormProps) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const {
-    username, password, isLoading, error,
-  } = useSelector(getLoginState);
+  const username = useSelector(getLoginUsername);
+  const password = useSelector(getLoginPassword);
+  const isLoading = useSelector(getLoginIsLoading);
+  const error = useSelector(getLoginError);
 
   const onChangeUsername = useCallback((value: string) => {
     dispatch(loginActions.setUsername(value));
