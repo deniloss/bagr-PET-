@@ -1,11 +1,41 @@
 import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/ loginByUsername';
+import axios from 'axios';
+import { Dispatch } from '@reduxjs/toolkit';
+import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
+import { TestAsyncThunk } from 'shared/lib/TestAsyncThunk/TestAsyncThunk';
+
+jest.mock('axios');
+const mockedAxios = jest.mocked(axios, true);
 
 describe('loginByUsername', () => {
-  test('Проверка авторизации пользователя', () => {
-    loginByUsername({ username: 'admin', password: '123' });
+  let dispatch: Dispatch;
+  let getState: () => StateSchema;
+
+  beforeEach(() => {
+    dispatch = jest.fn();
+    getState = jest.fn();
   });
 
-  test('Проверка авторизации с ошибкой', () => {
-    loginByUsername({ username: 'sass', password: 'asd14' });
+  test('success', async () => {
+    const userValue = { username: '123', password: '123' };
+    mockedAxios.post.mockReturnValue(Promise.resolve({ data: { username: '123', password: '123' } }));
+
+    const thunk = new TestAsyncThunk(loginByUsername);
+    const result = await thunk.callThunk(userValue);
+
+    expect(thunk.dispatch).toHaveBeenCalled();
+    expect(result.meta.requestStatus).toBe('fulfilled');
+  });
+
+  test('error', async () => {
+    const userValue = { username: '123', password: '123' };
+    mockedAxios.post.mockReturnValue(Promise.resolve({ status: 403 }));
+
+    const thunk = new TestAsyncThunk(loginByUsername);
+    const result = await thunk.callThunk(userValue);
+
+    expect(thunk.dispatch).toHaveBeenCalled();
+    expect(result.meta.requestStatus).toBe('rejected');
+    expect(result.payload).toBe(undefined);
   });
 });
