@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
@@ -11,7 +11,7 @@ interface SidebarItemProps {
   collapsed: boolean
 }
 
-export const SidebarItem = ({ className, item, collapsed }: SidebarItemProps) => {
+export const SidebarItem = memo(({ className, item, collapsed }: SidebarItemProps) => {
   const { t } = useTranslation();
   return (
     <div className={classNames(cls.SidebarItem, { [cls.collapsed]: collapsed }, [className])}>
@@ -24,4 +24,4 @@ export const SidebarItem = ({ className, item, collapsed }: SidebarItemProps) =>
       </AppLink>
     </div>
   );
-};
+});
