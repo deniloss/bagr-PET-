@@ -17,3 +17,5 @@ export function createStore(initialState?: StateSchema) {
     preloadedState: initialState,
   });
 }
+
+export type AppDispatch = ReturnType<typeof createStore>['dispatch']
