@@ -25,5 +25,13 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "firstname": "",
+    "lastname": "",
+    "age": "",
+    "country": "",
+    "city": "",
+    "username": "",
+    "avatar": ""
+  }
 }
