@@ -1,6 +1,6 @@
 import { Country } from 'app/const/common';
 
-export interface ProfileType {
+export interface Profile {
   firstname: string,
   lastname: string,
   age: number,
@@ -11,7 +11,7 @@ export interface ProfileType {
 }
 
 export interface ProfileSchema {
-  data?: ProfileType
+  data?: Profile
   isLoading: boolean
   error?: string
   readonly: boolean

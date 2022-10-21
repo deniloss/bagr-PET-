@@ -9,7 +9,7 @@ interface InputProps extends HTMLInputProps {
   value?: string
   onChange?: (value: string) => void
   type: string
-  placeholder: string
+  placeholder?: string
 }
 
 export const Input = memo((props: InputProps) => {
