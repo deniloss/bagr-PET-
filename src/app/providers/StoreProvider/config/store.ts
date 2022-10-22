@@ -6,26 +6,28 @@ import { profileReducer } from 'entities/Profile';
 import { $api } from 'shared/api/api';
 import { NavigateOptions } from 'react-router';
 import { To } from 'history';
-import { StateSchema } from './StateSchema';
-
-const rootReducers: ReducersMapObject<StateSchema> = {
-  counter: counterReducer,
-  user: userReducer,
-  loginForm: loginReducer,
-  profile: profileReducer,
-};
+import { StateSchema, ThunkExtraArg } from './StateSchema';
 
 export function createStore(initialState?: StateSchema, navigate?: (to: To, options?: NavigateOptions) => void) {
+  const extraArg: ThunkExtraArg = {
+    api: $api,
+    navigate,
+  };
+
+  const rootReducers: ReducersMapObject<StateSchema> = {
+    counter: counterReducer,
+    user: userReducer,
+    loginForm: loginReducer,
+    profile: profileReducer,
+  };
+
   return configureStore({
     devTools: __IS_DEV__,
     reducer: rootReducers,
     preloadedState: initialState,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
       thunk: {
-        extraArgument: {
-          api: $api,
-          navigate,
-        },
+        extraArgument: extraArg,
       },
     }),
   });

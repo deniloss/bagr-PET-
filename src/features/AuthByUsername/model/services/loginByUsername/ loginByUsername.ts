@@ -9,27 +9,30 @@ export interface loginProps {
   password: string
 }
 
-export const loginByUsername = createAsyncThunk<User, loginProps, ThunkConfig<string>>(
-  'login/loginByUsername',
-  async (AuthData, ThunkApi) => {
-    const {
-      extra,
-      rejectWithValue,
-      dispatch,
-    } = ThunkApi;
+export const loginByUsername = createAsyncThunk<
+  User,
+  loginProps,
+  ThunkConfig<string>
+  >(
+    'login/loginByUsername',
+    async (AuthData, ThunkApi) => {
+      const {
+        extra,
+        rejectWithValue,
+        dispatch,
+      } = ThunkApi;
 
-    try {
-      const response = await extra.api.post<User>('/login', AuthData);
+      try {
+        const response = await extra.api.post<User>('/login', AuthData);
 
-      if (!response.data) {
-        throw new Error();
+        if (!response.data) {
+          throw new Error();
+        }
+        dispatch(userActions.authUser(response.data));
+        localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(response.data));
+        return response.data;
+      } catch (e) {
+        return rejectWithValue(i18n.t('Вы ввели неверный логин или пароль'));
       }
-      dispatch(userActions.authUser(response.data));
-      extra.navigate('/profile');
-      localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(response.data));
-      return response.data;
-    } catch (e) {
-      return rejectWithValue(i18n.t('Вы ввели неверный логин или пароль'));
-    }
-  },
-);
+    },
+  );
