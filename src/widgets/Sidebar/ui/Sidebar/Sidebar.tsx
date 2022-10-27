@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher/LangSwitcher';
 import { Button, ButtonSize, ThemeButton } from 'shared/ui/Button/Button';
-import { useTranslation } from 'react-i18next';
 
 import { SidebarItemsList } from 'widgets/Sidebar/model/items';
 import { SidebarItem } from 'widgets/Sidebar/ui/SidebarItem/SidebarItem';
@@ -37,7 +36,12 @@ export const Sidebar = ({ className }: SidebarProps) => {
       </Button>
       <div className={cls.items}>
         {SidebarItemsList.map((item) => (
-          <SidebarItem item={item} collapsed={collapsed} key={item.path} />
+          <SidebarItem
+            item={item}
+            collapsed={collapsed}
+            key={item.path}
+            authOnly={item.authOnly}
+          />
         ))}
       </div>
       <div className={cls.switchers}>
