@@ -17,6 +17,7 @@ const Template: ComponentStory<typeof ThemeSwitcher> = (args) => <ThemeSwitcher 
 
 export const DarkTheme = Template.bind({});
 DarkTheme.args = {
+  // @ts-ignore
   theme: ThemeButton.CLEAR,
 };
 DarkTheme.decorators = [ThemeDecorator(Theme.DARK)];

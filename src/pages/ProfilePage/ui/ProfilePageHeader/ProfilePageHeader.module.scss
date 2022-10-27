@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-line-l);
+  margin-bottom: 10px;
+}
+
+.editBtn {
+  margin-left: auto;
+}
+
+.cancelEditBtn {
+  margin-left: 10px;
+}

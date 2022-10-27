@@ -4,9 +4,6 @@ import { Dispatch } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
 import { TestAsyncThunk } from 'shared/lib/TestAsyncThunk/TestAsyncThunk';
 
-jest.mock('axios');
-const mockedAxios = jest.mocked(axios, true);
-
 describe('loginByUsername', () => {
   let dispatch: Dispatch;
   let getState: () => StateSchema;
@@ -18,9 +15,8 @@ describe('loginByUsername', () => {
 
   test('success', async () => {
     const userValue = { username: '123', password: '123' };
-    mockedAxios.post.mockReturnValue(Promise.resolve({ data: { username: '123', password: '123' } }));
-
     const thunk = new TestAsyncThunk(loginByUsername);
+    thunk.api.post.mockReturnValue(Promise.resolve({ data: { username: '123', password: '123' } }));
     const result = await thunk.callThunk(userValue);
 
     expect(thunk.dispatch).toHaveBeenCalled();
@@ -29,9 +25,9 @@ describe('loginByUsername', () => {
 
   test('error', async () => {
     const userValue = { username: '123', password: '123' };
-    mockedAxios.post.mockReturnValue(Promise.resolve({ status: 403 }));
 
     const thunk = new TestAsyncThunk(loginByUsername);
+    thunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }));
     const result = await thunk.callThunk(userValue);
 
     expect(thunk.dispatch).toHaveBeenCalled();

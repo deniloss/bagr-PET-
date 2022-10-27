@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'app/providers/StoreProvider/config/store';
 import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
-import { DeepPartial } from '@reduxjs/toolkit';
+import { useNavigate } from 'react-router-dom';
 
 interface StoreProviderProps {
   children: ReactNode
@@ -15,7 +15,12 @@ export const StoreProvider = (props: StoreProviderProps) => {
     initialState,
   } = props;
 
-  const store = createStore(initialState as StateSchema);
+  const navigate = useNavigate();
+
+  const store = createStore(
+    initialState as StateSchema,
+    navigate,
+  );
 
   return (
     <Provider store={store}>

@@ -1,0 +1,17 @@
+.ProfileCard {
+  padding: 20px;
+  border: 2px solid var(--inverted-bg-color);
+}
+
+.inputCell {
+  display: flex;
+  flex-direction: row;
+}
+
+.inputName {
+  min-width: 120px;
+}
+
+.input {
+  margin-left: 10px;
+}

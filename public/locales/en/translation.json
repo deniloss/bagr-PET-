@@ -20,5 +20,13 @@
   "Вы ввели неверный логин или пароль": "uncorrected username or password",
   "Авторизация": "Authorization",
   "Выйти": "Logout",
-  "Профиль": "Profile"
+  "Профиль": "Profile",
+  "Ваша фамилия": "Your surname",
+  "Редактировать": "Edit",
+  "Сохранить": "Save",
+  "Возраст": "Age",
+  "Город": "City",
+  "Ник": "Username",
+  "Страна": "Country",
+  "Укажите валюту": "Choose a currency"
 }
