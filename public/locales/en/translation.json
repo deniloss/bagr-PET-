@@ -28,5 +28,12 @@
   "Город": "City",
   "Ник": "Username",
   "Страна": "Country",
-  "Укажите валюту": "Choose a currency"
+  "Укажите валюту": "Choose a currency",
+  "Некорректная страна": "Incorrect country",
+  "Некорректный возраст": "Incorrect age",
+  "Некорректный город": "Incorrect city",
+  "Данные не указаны": "No data",
+  "Некорректные данные пользователя": "Incorrect user data",
+  "Аватарка": "Avatar",
+  "Ошибка Сервера": "Server Error"
 }
