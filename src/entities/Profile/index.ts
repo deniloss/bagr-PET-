@@ -1,7 +1,8 @@
 import { ProfileSchema, Profile } from './model/types/profile';
-import { fetchProfileData } from './model/services/fetchProfileData';
+import { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData';
+import { validateProfileData } from './model/services/validateProfileData/validateProfileData';
 import { ProfileCard } from './ui/ProfileCard';
-import { saveProfileData } from './model/services/saveProfileData';
+import { saveProfileData } from './model/services/saveProfileData/saveProfileData';
 import { getProfileForm } from './model/selectors/getProfileForm/getProfileForm';
 import { getProfileData } from './model/selectors/getProfileData/getProfileData';
 import { getProfileIsLoading } from './model/selectors/getProfileIsLoading/getProfileIsLoading';
@@ -16,6 +17,7 @@ export {
   Profile,
   ProfileSchema,
   fetchProfileData,
+  validateProfileData,
   ProfileCard,
   saveProfileData,
   getProfileReadOnly,

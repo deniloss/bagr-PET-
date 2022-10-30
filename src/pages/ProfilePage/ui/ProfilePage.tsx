@@ -36,7 +36,9 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   };
 
   React.useEffect(() => {
-    dispatch(fetchProfileData());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchProfileData());
+    }
   }, [dispatch]);
 
   const formData = useSelector(getProfileForm);
@@ -70,7 +72,6 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   }, [dispatch]);
 
   const onChangeCountry = useCallback((country: Country) => {
-    console.log('1');
     dispatch(profileActions.updateProfile({ country }));
   }, [dispatch]);
 
