@@ -5,6 +5,8 @@
       "\n": ""
     }
   },
+  "ARTICLES PAGE": "ARTICLES PAGE",
+  "ArticleDetailsPage": "ArticleDetailsPage",
   "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
     " Ab accusamus deleniti eum incidunt laborum minima modi perspiciatis quo sint voluptate": {
       "\n": ""
@@ -38,6 +40,7 @@
   "Ошибка сервера": "Ошибка сервера",
   "Пароль": "Пароль",
   "Произошла ошибка": "Произошла ошибка",
+  "Произошла ошибка при загрузке страницы": "Произошла ошибка при загрузке страницы",
   "Прокинуть ошибку": "Прокинуть ошибку",
   "Профиль": "Профиль",
   "Редактировать": "Редактировать",

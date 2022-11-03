@@ -35,5 +35,6 @@
   "Данные не указаны": "No data",
   "Некорректные данные пользователя": "Incorrect user data",
   "Аватарка": "Avatar",
-  "Ошибка Сервера": "Server Error"
+  "Ошибка Сервера": "Server Error",
+  "Произошла ошибка при загрузке страницы": "Error occurred at loading"
 }
