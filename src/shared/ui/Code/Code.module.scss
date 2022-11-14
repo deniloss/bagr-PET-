@@ -10,4 +10,8 @@
   top: 20px;
   right: 20px;
   background: transparent;
+
+  &:hover {
+    opacity: 0.6;
+  }
 }
