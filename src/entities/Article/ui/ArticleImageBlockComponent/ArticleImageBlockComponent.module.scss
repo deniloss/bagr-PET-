@@ -1,9 +1,12 @@
 .ArticleImageBlockComponent {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 23px auto 0;
 }
 
 .articleImage {
   min-height: 260px;
   max-height: 500px;
+  max-width: 60%;
 }
