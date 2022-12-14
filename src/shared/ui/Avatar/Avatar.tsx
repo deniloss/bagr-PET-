@@ -1,17 +1,15 @@
 import React, { CSSProperties, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Avatar.module.scss';
 
 interface AvatarProps {
   className?: string
-  src: string
+  src?: string
   size: number
   alt?: string
 }
 
 export const Avatar = (props: AvatarProps) => {
-  const { t } = useTranslation();
   const {
     className,
     src,

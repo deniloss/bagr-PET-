@@ -3,6 +3,12 @@
   padding: 20px;
   position: relative;
   background: var(--code-bg);
+  color: var(--code);
+  overflow: auto;
+}
+
+.copyIcon path {
+  stroke: var(--code);
 }
 
 .copyBtn {
@@ -14,4 +20,8 @@
   &:hover {
     opacity: 0.6;
   }
+}
+
+.codeText {
+  width: 100%;
 }

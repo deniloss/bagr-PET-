@@ -1,33 +1,40 @@
-interface ArticleBlockBase {
-  id: string
-  type: 'TEXT' | 'WARNING' |'IMAGE' | 'CODE'
+export enum ArticleBlockType {
+  CODE = 'CODE',
+  IMAGE = 'IMAGE',
+  TEXT = 'TEXT',
+  WARNING = 'WARNING'
 }
 
-interface ArticleCodeBlock extends ArticleBlockBase {
-  type: 'CODE'
+export interface ArticleBlockBase {
+  id: string
+  type: ArticleBlockType
+}
+
+export interface ArticleCodeBlock extends ArticleBlockBase {
+  type: ArticleBlockType.CODE
   code: string
 }
 
-interface ArticleImageBlock extends ArticleBlockBase {
-  type: 'IMAGE'
+export interface ArticleImageBlock extends ArticleBlockBase {
+  type: ArticleBlockType.IMAGE
   src: string
   title?: string
 }
 
-interface ArticleTextBlock extends ArticleBlockBase {
-  type: 'TEXT'
+export interface ArticleTextBlock extends ArticleBlockBase {
+  type: ArticleBlockType.TEXT
   title?: string
   paragraphs: string[]
 }
 
-interface ArticleWarningBlock extends ArticleBlockBase {
-  type: 'WARNING'
+export interface ArticleWarningBlock extends ArticleBlockBase {
+  type: ArticleBlockType.WARNING
   color: string
   title: string
   paragraphs: string[]
 }
 
-export type ArticleBlockType = ArticleWarningBlock | ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock
+export type ArticleBlock = ArticleWarningBlock | ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock
 
 export enum ArticleType {
   IT = 'IT',
@@ -44,5 +51,5 @@ export interface Article {
   views: number
   createdAt: string
   type: ArticleType[]
-  blocks: ArticleBlockType[]
+  blocks: ArticleBlock[]
 }
