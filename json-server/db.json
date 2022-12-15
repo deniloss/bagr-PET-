@@ -45,11 +45,10 @@
         {
           "id": "4",
           "type": "WARNING",
-          "color": "yellow",
+          "warningType": "success",
           "title": "Warning tip!",
-          "paragraphs": [
+          "paragraph":
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos error facere iusto quam quibusdam rem tempore. Eaque hic minima nisi!"
-          ]
         }
       ]
     }

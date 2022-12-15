@@ -47,7 +47,7 @@ export const ArticleDetails = ({ className, id }: ArticleDetailsProps) => {
     case ArticleBlockType.IMAGE:
       return <ArticleImageBlockComponent key={block.id} block={block} />;
     case ArticleBlockType.WARNING:
-      return <ArticleWarningBlockComponent />;
+      return <ArticleWarningBlockComponent key={block.id} block={block} />;
     default:
       return null;
     }

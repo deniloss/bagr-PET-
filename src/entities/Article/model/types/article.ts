@@ -29,9 +29,9 @@ export interface ArticleTextBlock extends ArticleBlockBase {
 
 export interface ArticleWarningBlock extends ArticleBlockBase {
   type: ArticleBlockType.WARNING
-  color: string
+  warningType: string
   title: string
-  paragraphs: string[]
+  paragraph: string
 }
 
 export type ArticleBlock = ArticleWarningBlock | ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock
