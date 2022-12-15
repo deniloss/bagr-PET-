@@ -14,9 +14,7 @@ import { ArticleBlock, ArticleBlockType } from 'entities/Article/model/types/art
 import { ArticleTextBlockComponent } from 'entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleCodeBlockComponent } from 'entities/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from 'entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
-import {
-  ArticleWarningBlockComponent,
-} from 'entities/Article/ui/ArticleWarningBlockComponent/ArticleWarningBlockComponent';
+
 import { fetchArticleById } from '../../model/services/fetchArticleById';
 import cls from './ArticleDetails.module.scss';
 
@@ -47,7 +45,7 @@ export const ArticleDetails = ({ className, id }: ArticleDetailsProps) => {
     case ArticleBlockType.IMAGE:
       return <ArticleImageBlockComponent key={block.id} block={block} />;
     case ArticleBlockType.WARNING:
-      return <ArticleWarningBlockComponent key={block.id} block={block} />;
+      return null;
     default:
       return null;
     }
