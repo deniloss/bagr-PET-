@@ -4,7 +4,7 @@
 }
 
 .text {
-  color: var(--secondary-color);
+  color: var(--inverted-secondary-color);
   font: var(--font-m);
 }
 
@@ -15,5 +15,37 @@
 
   .text {
     color: var(--red-dark);
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.left {
+  text-align: left;
+}
+
+.size_m {
+  .title {
+    font-size: var(--font-size-l);
+  }
+
+  .text {
+    font-size: var(--font-size-m);
+  }
+}
+
+.size_l {
+  .title {
+    font-size: var(--font-size-xl);
+  }
+
+  .text {
+    font-size: var(--font-size-l);
   }
 }
