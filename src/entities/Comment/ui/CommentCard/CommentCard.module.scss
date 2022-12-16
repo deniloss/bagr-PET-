@@ -1,0 +1,19 @@
+.CommentCard {
+  margin-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--primary-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.userName {
+  margin-bottom: 5px;
+}
+
+.header {
+}
+
+.content {
+  margin: 0 0 5px 15px;
+}

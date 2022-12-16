@@ -15,6 +15,7 @@ import { ArticleTextBlockComponent } from 'entities/Article/ui/ArticleTextBlockC
 import { ArticleCodeBlockComponent } from 'entities/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from 'entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
 
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { fetchArticleById } from '../../model/services/fetchArticleById';
 import cls from './ArticleDetails.module.scss';
 
@@ -30,11 +31,9 @@ export const ArticleDetails = ({ className, id }: ArticleDetailsProps) => {
   const article = useSelector(getArticleData);
   const isLoading = useSelector(getArticleIsLoading);
 
-  React.useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchArticleById(id));
-    }
-  }, [dispatch, id]);
+  useInitialEffect(() => {
+    dispatch(fetchArticleById(id));
+  });
 
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {

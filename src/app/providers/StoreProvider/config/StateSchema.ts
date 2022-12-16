@@ -6,13 +6,15 @@ import { AxiosInstance } from 'axios';
 import { To } from 'history';
 import { NavigateOptions } from 'react-router';
 import { ArticleSchema } from 'entities/Article';
+import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
 
 export interface StateSchema {
   counter: CounterSchema,
   user: userSchema,
   loginForm: LoginSchema,
   profile: ProfileSchema,
-  ArticleDetails: ArticleSchema
+  ArticleDetails: ArticleSchema,
+  ArticleDetailsComments: ArticleDetailsCommentSchema
 }
 
 export interface ThunkExtraArg {

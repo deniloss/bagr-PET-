@@ -37,11 +37,9 @@ const article: Article = {
     {
       id: '4',
       type: ArticleBlockType.WARNING,
-      color: 'yellow',
+      warningType: 'yellow',
       title: 'Warning tip!',
-      paragraphs: [
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos error facere iusto quam quibusdam rem tempore. Eaque hic minima nisi!',
-      ],
+      paragraph: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos error facere iusto quam quibusdam rem tempore. Eaque hic minima nisi!',
     },
   ],
 };

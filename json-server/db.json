@@ -56,19 +56,19 @@
   "comments": [
     {
       "id": 1,
-      "body": "some comment",
+      "text": "some comment",
       "articleId": "1",
       "userId": "1"
     },
     {
       "id": 2,
-      "body": "some comment",
+      "text": "some comment",
       "articleId": "1",
       "userId": "2"
     },
     {
       "id": 3,
-      "body": "some comment",
+      "text": "some comment",
       "articleId": "1",
       "userId": "3"
     }
@@ -77,17 +77,20 @@
     {
       "id": 1,
       "username": "admin",
-      "password": "123"
+      "password": "123",
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
     },
     {
       "id": 2,
       "username": "yan",
-      "password": "123"
+      "password": "123",
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
     },
     {
       "id": 3,
       "username": "denilos",
-      "password": "123"
+      "password": "123",
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
     }
   ],
   "profile": {

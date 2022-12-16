@@ -7,6 +7,7 @@ import { $api } from 'shared/api/api';
 import { NavigateOptions } from 'react-router';
 import { To } from 'history';
 import { ArticleReducer } from 'entities/Article/model/slice/ArticleSlice';
+import { ArticleDetailsCommentsReducer } from 'pages/ArticleDetailsPage/model/slice/ArticleDetailsCommentsSlice';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 
 export function createStore(initialState?: StateSchema, navigate?: (to: To, options?: NavigateOptions) => void) {
@@ -21,6 +22,7 @@ export function createStore(initialState?: StateSchema, navigate?: (to: To, opti
     loginForm: loginReducer,
     profile: profileReducer,
     ArticleDetails: ArticleReducer,
+    ArticleDetailsComments: ArticleDetailsCommentsReducer,
   };
 
   return configureStore({
