@@ -1,5 +1,4 @@
 import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/ loginByUsername';
-import axios from 'axios';
 import { Dispatch } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
 import { TestAsyncThunk } from 'shared/lib/TestAsyncThunk/TestAsyncThunk';
