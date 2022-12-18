@@ -19,6 +19,7 @@ export const SidebarItem = memo(({
 }: SidebarItemProps) => {
   const { t } = useTranslation();
   const isAuth = useSelector(getUserAuthData);
+  const userData = useSelector(getUserAuthData);
 
   if (authOnly && !isAuth) {
     return null;
@@ -26,13 +27,25 @@ export const SidebarItem = memo(({
 
   return (
     <div className={classNames(cls.SidebarItem, { [cls.collapsed]: collapsed }, [className])}>
-      <AppLink
-        theme={AppLinkTheme.SECONDARY}
-        to={item.path}
-      >
-        <item.icon className={cls.icon} />
-        <span className={cls.link}>{t(item.text)}</span>
-      </AppLink>
+      {item.path === '/profile'
+        ? (
+          <AppLink
+            theme={AppLinkTheme.SECONDARY}
+            to={`${item.path}/${userData?.id}`}
+          >
+            <item.icon className={cls.icon} />
+            <span className={cls.link}>{t(item.text)}</span>
+          </AppLink>
+        )
+        : (
+          <AppLink
+            theme={AppLinkTheme.SECONDARY}
+            to={item.path}
+          >
+            <item.icon className={cls.icon} />
+            <span className={cls.link}>{t(item.text)}</span>
+          </AppLink>
+        )}
     </div>
   );
 });
