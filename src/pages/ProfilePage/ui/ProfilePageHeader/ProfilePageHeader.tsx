@@ -21,8 +21,6 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
   const currentUserData = useSelector(getUserAuthData);
   const profileData = useSelector(getProfileData);
   const canEdit = currentUserData?.id === profileData?.id;
-  console.log(currentUserData);
-  console.log(profileData);
 
   const onEdit = () => {
     dispatch(profileActions.onChangeReadOnly(false));
@@ -34,7 +32,7 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
   };
 
   const onSave = () => {
-    dispatch(saveProfileData());
+    dispatch(saveProfileData(profileData?.id));
   };
 
   return (
