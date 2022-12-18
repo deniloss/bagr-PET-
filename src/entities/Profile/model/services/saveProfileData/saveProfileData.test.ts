@@ -6,6 +6,7 @@ import { Country } from 'app/const/common';
 import { saveProfileData } from './saveProfileData';
 
 const data: Profile = {
+  id: '1',
   firstname: 'admin',
   lastname: 'admin',
   age: 22,

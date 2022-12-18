@@ -101,20 +101,20 @@
   ],
   "users": [
     {
-      "id": 1,
-      "username": "admin",
+      "id": "1",
+      "username": "denilos",
       "password": "123",
       "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "username": "yan",
       "password": "123",
       "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
     },
     {
-      "id": 3,
-      "username": "denilos",
+      "id": "3",
+      "username": "admin",
       "password": "123",
       "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
     }

@@ -6,6 +6,7 @@ import { getProfileData } from './getProfileData';
 describe('getProfileData.test', () => {
   test('return profile object', () => {
     const data: Profile = {
+      id: '1',
       firstname: 'admin',
       lastname: 'admin',
       age: 22,

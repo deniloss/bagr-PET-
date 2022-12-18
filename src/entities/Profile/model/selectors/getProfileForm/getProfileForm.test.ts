@@ -6,6 +6,7 @@ import { getProfileForm } from './getProfileForm';
 describe('getProfileForm.test', () => {
   test('return profile form object', () => {
     const data: Profile = {
+      id: '1',
       firstname: 'admin',
       lastname: 'admin',
       age: 22,
