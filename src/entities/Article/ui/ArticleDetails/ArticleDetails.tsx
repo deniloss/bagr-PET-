@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import CalendarIcon from 'shared/assets/icons/article_calendar.svg';
-import ViewIcon from 'shared/assets/icons/article_views.svg';
+import ViewIcon from 'shared/assets/icons/viewIcon.svg';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';

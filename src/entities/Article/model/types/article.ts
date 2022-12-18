@@ -43,6 +43,11 @@ export enum ArticleType {
   JS = 'JS'
 }
 
+export enum ArticleView {
+  TILES = 'tiles',
+  LIST = 'list'
+}
+
 export interface Article {
   id: string
   title: string
