@@ -7,6 +7,7 @@ import { To } from 'history';
 import { NavigateOptions } from 'react-router';
 import { ArticleSchema } from 'entities/Article';
 import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
+import { CommentFormSchema } from 'features/AddCommentForm';
 
 export interface StateSchema {
   counter: CounterSchema,
@@ -14,7 +15,8 @@ export interface StateSchema {
   loginForm: LoginSchema,
   profile: ProfileSchema,
   ArticleDetails: ArticleSchema,
-  ArticleDetailsComments: ArticleDetailsCommentSchema
+  ArticleDetailsComments: ArticleDetailsCommentSchema,
+  CommentForm: CommentFormSchema,
 }
 
 export interface ThunkExtraArg {

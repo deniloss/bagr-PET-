@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetails } from 'entities/Article';
@@ -10,6 +10,9 @@ import { getArticleComments } from 'pages/ArticleDetailsPage/model/slice/Article
 import { getArticleIsLoading } from 'entities/Article/model/selectors/Article';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { fetchCommentsById } from 'pages/ArticleDetailsPage/model/services/fetchCommentsById';
+import { AddCommentForm } from 'features/AddCommentForm';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/services/sendCommentForArticle';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -20,12 +23,16 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const comments = useSelector(getArticleComments.selectAll);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticleIsLoading);
 
   useInitialEffect(() => {
     dispatch(fetchCommentsById(id));
   });
+
+  const onSendComment = useCallback((text: string) => {
+    dispatch(addCommentForArticle(text));
+  }, [dispatch]);
 
   if (!id) {
     return (
@@ -38,6 +45,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
       <ArticleDetails id={id} />
       <Text className={cls.commentTitle} title={t('Комментарии')} />
+      <AddCommentForm sendComment={onSendComment} />
       <CommentList isLoading={isLoading} comments={comments} />
     </div>
   );

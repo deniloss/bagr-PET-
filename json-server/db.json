@@ -73,6 +73,30 @@
       "text": "some comment",
       "articleId": "1",
       "userId": "3"
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "Привет",
+      "id": 4
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "hi",
+      "id": 5
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "87b",
+      "id": 6
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "776",
+      "id": 7
     }
   ],
   "users": [
