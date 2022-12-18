@@ -82,9 +82,16 @@ SquareXL.args = {
   size: ButtonSize.XL,
   square: true,
 };
+
 export const Rounded = Template.bind({});
 Rounded.args = {
   children: 'Text Text',
   theme: ThemeButton.OUTLINE,
   rounded: true,
+};
+
+export const OutlineRed = Template.bind({});
+OutlineRed.args = {
+  children: 'Text Text',
+  theme: ThemeButton.OUTLINE_RED,
 };

@@ -17,6 +17,8 @@ import { ProfilePageHeader } from 'pages/ProfilePage/ui/ProfilePageHeader/Profil
 import { useSelector } from 'react-redux';
 import { Country } from 'app/const/common';
 import { ValidateProfileError } from 'entities/Profile/model/types/profile';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 
 interface ProfilePageProps {
   className?: string
@@ -25,6 +27,7 @@ interface ProfilePageProps {
 const ProfilePage = ({ className }: ProfilePageProps) => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
+  const { id } = useParams<{ id: string }>();
 
   const validateErrorTranslations = {
     [ValidateProfileError.SERVER_ERROR]: t('Ошибка Сервера'),
@@ -35,11 +38,11 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     [ValidateProfileError.INCORRECT_USER_DATA]: t('Некорректные данные пользователя'),
   };
 
-  React.useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData());
+  useInitialEffect(() => {
+    if (id) {
+      dispatch(fetchProfileData(id));
     }
-  }, [dispatch]);
+  });
 
   const formData = useSelector(getProfileForm);
   const error = useSelector(getProfileError);

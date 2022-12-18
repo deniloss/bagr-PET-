@@ -2,8 +2,6 @@ import React, { Suspense, useCallback } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { AppRoutesProps, routeConfig } from 'shared/config/routeConfig/routeConfig';
 import { PageLoader } from 'widgets/PageLoader/PageLoader';
-import { useSelector } from 'react-redux';
-import { getUserAuthData } from 'entities/User/model/selectors/getUserAuthData';
 import { RequireAuth } from 'app/providers/router/ui/RequireAuth';
 
 const AppRouter = () => {

@@ -2,8 +2,8 @@ import { Dispatch } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
 import { TestAsyncThunk } from 'shared/lib/TestAsyncThunk/TestAsyncThunk';
 import { Article } from 'entities/Article';
-import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById';
 import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
+import { fetchArticleById } from 'entities/Article/model/services/fetchArtivleById/fetchArticleById';
 
 const article: Article = {
   id: '1',
@@ -38,11 +38,9 @@ const article: Article = {
     {
       id: '4',
       type: ArticleBlockType.WARNING,
-      color: 'yellow',
+      warningType: 'yellow',
       title: 'Warning tip!',
-      paragraphs: [
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos error facere iusto quam quibusdam rem tempore. Eaque hic minima nisi!',
-      ],
+      paragraph: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos error facere iusto quam quibusdam rem tempore. Eaque hic minima nisi!',
     },
   ],
 };
