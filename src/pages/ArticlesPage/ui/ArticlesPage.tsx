@@ -2,17 +2,19 @@ import React from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Article, ArticleList } from 'entities/Article';
-import { ArticleView } from 'entities/Article/model/types/article';
 import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
   className?: string
 }
 
-const article = [{
+// todo по заполнению DB, убрать фейковые статьи
+const article = {
   id: '1',
   title: 'JavaScript 2022',
-  subtitle: "What's new?",
+  subtitle: 'JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.\n'
+    + '\n'
+    + 'Для того чтобы её написать, если вы пользуетесь Google Chrome, откройте меню браузера и выберите в нём команду Дополнительные инструменты > Инструменты разработчика. Окно браузера окажется разделённым на две части. В одной из них будет видна страница, в другой откроется панель с инструментами разработчика, содержащая несколько закладок. Нас интересует закладка Console (Консоль). Щёлкните по ней. Не обращайте внимания на то, что уже может в консоли присутствовать (для её очистки можете воспользоваться комбинацией клавиш Ctrl + L). Нас сейчас интересует приглашение консоли. Именно сюда можно вводить JavaScript-код, который выполняется по нажатию клавиши Enter. Введём в консоль следующее......',
   img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png',
   views: 12,
   createdAt: '26.02.2022',
@@ -50,13 +52,19 @@ const article = [{
       paragraph: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos error facere iusto quam quibusdam rem tempore. Eaque hic minima nisi!',
     },
   ],
-}] as Article[];
+} as Article;
 
 const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const { t } = useTranslation();
   return (
     <div className={classNames(cls.ArticlesPage, {}, [className])}>
-      <ArticleList articles={article} />
+      <ArticleList articles={new Array(16)
+        .fill(0)
+        .map((item, index) => ({
+          ...article,
+          id: String(index),
+        }))}
+      />
     </div>
   );
 };

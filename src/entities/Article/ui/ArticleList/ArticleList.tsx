@@ -15,15 +15,16 @@ export const ArticleList = memo((props : ArticleListProps) => {
   const {
     className,
     articles,
-    view = ArticleView.TILES,
+    view = ArticleView.LIST,
   } = props;
   const { t } = useTranslation();
+
   const renderArticle = (article: Article) => (
-    <ArticleListItem article={article} view={view} />
+    <ArticleListItem className={cls.card} article={article} view={view} />
   );
 
   return (
-    <div className={classNames(cls.ArticleList, {}, [className])}>
+    <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
       {articles.length > 0
         ? articles.map(renderArticle)
         : null}
