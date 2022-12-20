@@ -7,8 +7,6 @@ import { Text } from 'shared/ui/Text/Text';
 import viewIcon from 'shared/assets/icons/viewIcon.svg';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { getUserAuthData } from 'entities/User/model/selectors/getUserAuthData';
-import { useSelector } from 'react-redux';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
