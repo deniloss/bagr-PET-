@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Article } from 'entities/Article';
@@ -10,6 +10,8 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { getUserAuthData } from 'entities/User/model/selectors/getUserAuthData';
 import { useSelector } from 'react-redux';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { useNavigate } from 'react-router-dom';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {
@@ -25,11 +27,16 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     view,
   } = props;
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  const onOpenArticle = useCallback(() => {
+    navigate(RoutePath.articles_details + article.id);
+  }, [article.id, navigate]);
 
   if (view === ArticleView.TILES) {
     return (
       <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-        <div className={cls.card}>
+        <div className={cls.card} onClick={onOpenArticle}>
           <div className={cls.imageWrapper}>
             <img className={cls.image} src={article.img} alt={article.title} />
             <Text className={cls.date} text={article.createdAt} />
@@ -61,7 +68,9 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
           <Text className={cls.subtitle} text={article.subtitle} />
           <div className={cls.footer}>
-            <Button className={cls.button} theme={ThemeButton.OUTLINE}>{t('Читать дальше')}</Button>
+            <Button className={cls.button} theme={ThemeButton.OUTLINE} onClick={onOpenArticle}>
+              {t('Читать дальше')}
+            </Button>
             <Text className={cls.views} text={String(article.views)} />
             <Icon className={cls.icon} Svg={viewIcon} />
           </div>
