@@ -25,7 +25,6 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     view,
   } = props;
   const { t } = useTranslation();
-  const user = useSelector(getUserAuthData);
 
   if (view === ArticleView.TILES) {
     return (
@@ -52,8 +51,8 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
       <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
         <div className={cls.card}>
           <div className={cls.header}>
-            <Avatar className={cls.avatar} size={20} src={user?.avatar} />
-            <Text className={cls.username} text={user?.username} />
+            <Avatar className={cls.avatar} size={20} src={article.user.avatar} />
+            <Text className={cls.username} text={article.user.username} />
             <Text className={cls.date} text={article.createdAt} />
           </div>
           <Text className={cls.title} title={article.title} />

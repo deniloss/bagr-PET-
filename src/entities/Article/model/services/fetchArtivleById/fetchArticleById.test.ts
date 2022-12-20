@@ -11,6 +11,11 @@ const article: Article = {
   subtitle: "What's new?",
   img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png',
   views: 12,
+  user: {
+    id: '1',
+    username: 'denilos',
+    avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+  },
   createdAt: '26.02.2022',
   type: [ArticleType.IT, ArticleType.JS],
   blocks: [
