@@ -9,6 +9,7 @@ import { To } from 'history';
 import { ArticleReducer } from 'entities/Article/model/slice/ArticleSlice';
 import { ArticleDetailsCommentsReducer } from 'pages/ArticleDetailsPage/model/slice/ArticleDetailsCommentsSlice';
 import { CommentFormReducer } from 'features/AddCommentForm';
+import { articlesPageReducer } from 'pages/ArticlesPage/model/slice/articlesPageSlice';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 
 export function createStore(initialState?: StateSchema, navigate?: (to: To, options?: NavigateOptions) => void) {
@@ -25,6 +26,7 @@ export function createStore(initialState?: StateSchema, navigate?: (to: To, opti
     ArticleDetails: ArticleReducer,
     ArticleDetailsComments: ArticleDetailsCommentsReducer,
     CommentForm: CommentFormReducer,
+    ArticlesList: articlesPageReducer,
   };
 
   return configureStore({

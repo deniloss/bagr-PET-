@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import CalendarIcon from 'shared/assets/icons/article_calendar.svg';
-import ViewIcon from 'shared/assets/icons/article_views.svg';
+import ViewIcon from 'shared/assets/icons/viewIcon.svg';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
@@ -16,8 +16,12 @@ import { ArticleCodeBlockComponent } from 'entities/Article/ui/ArticleCodeBlockC
 import { ArticleImageBlockComponent } from 'entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
 
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { fetchArticleById } from '../../model/services/fetchArtivleById/fetchArticleById';
+import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { navigate } from '@storybook/addon-links';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { useNavigate } from 'react-router-dom';
 import cls from './ArticleDetails.module.scss';
+import { fetchArticleById } from '../../model/services/fetchArtivleById/fetchArticleById';
 
 interface ArticleDetailsProps {
   className?: string
@@ -30,6 +34,7 @@ export const ArticleDetails = ({ className, id }: ArticleDetailsProps) => {
   const error = useSelector(getArticleError);
   const article = useSelector(getArticleData);
   const isLoading = useSelector(getArticleIsLoading);
+  const navigate = useNavigate();
 
   useInitialEffect(() => {
     dispatch(fetchArticleById(id));
@@ -50,6 +55,10 @@ export const ArticleDetails = ({ className, id }: ArticleDetailsProps) => {
     }
   }, []);
 
+  const onReturnToList = useCallback(() => {
+    navigate(RoutePath.articles);
+  }, [navigate]);
+
   let content;
 
   if (isLoading) {
@@ -69,6 +78,9 @@ export const ArticleDetails = ({ className, id }: ArticleDetailsProps) => {
   } else {
     content = (
       <>
+        <Button theme={ThemeButton.OUTLINE} onClick={onReturnToList}>
+          {t('Назад к списку')}
+        </Button>
         <div className={cls.avatarWrapper}>
           <Avatar src={article?.img} size={200} />
         </div>

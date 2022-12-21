@@ -1,0 +1,15 @@
+.tiles {
+  .ArticleList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+}
+
+.list {
+  display: flex;
+  margin: auto;
+  width: 95%;
+  flex-direction: column;
+  gap: 15px;
+}
