@@ -21,13 +21,9 @@ export const ArticleListSkeleton = memo((props: ArticleListSkeletonProps) => {
           <Skeleton className={cls.date} height="20px" width="200px" />
         </div>
         <Skeleton className={cls.title} height="30px" width="40%" />
-        <Skeleton className={cls.types} height="25px" width="20%" />
         <Skeleton className={cls.image} height="200px" width="100%" />
-        <Skeleton className={cls.subtitle} height="200px" width="100%" />
         <div className={cls.footer}>
-          <Skeleton className={cls.button} height="35px" width="20%" />
-          <Skeleton className={cls.views} height="20px" width="10%" />
-          <Skeleton className={cls.icon} height="20px" width="10%" />
+          <Skeleton className={cls.button} height="45px" width="20%" />
         </div>
       </div>
     );
