@@ -1,12 +1,12 @@
 .ArticleViewSelector {
-
+  margin-bottom: 30px;
 }
 
 .notSelected {
-  fill: var(--secondary-color);
+  fill: var(--primary-color) !important;
 }
 
-.button {
-  fill: var(--primary-color);
+.icon {
+  fill: var(--secondary-color);
   margin-left: 15px;
 }

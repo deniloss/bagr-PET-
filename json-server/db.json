@@ -184,6 +184,12 @@
       "userId": 1,
       "text": "776",
       "id": 7
+    },
+    {
+      "articleId": "2",
+      "userId": "3",
+      "text": "Hello, Kotlin",
+      "id": 8
     }
   ],
   "users": [
