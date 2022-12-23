@@ -1,15 +1,15 @@
-.tiles {
-  .ArticleList {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+.list {
+  .card {
+    margin-bottom: 25px;
   }
 }
 
-.list {
+.tiles {
   display: flex;
-  margin: auto;
-  width: 95%;
-  flex-direction: column;
-  gap: 15px;
+  flex-wrap: wrap;
+
+  .card {
+    margin-right: 30px;
+    margin-bottom: 30px;
+  }
 }

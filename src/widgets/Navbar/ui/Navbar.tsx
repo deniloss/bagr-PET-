@@ -28,7 +28,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   if (user) {
     return (
-      <div className={classNames(cls.Navbar, {}, [className])}>
+      <header className={classNames(cls.Navbar, {}, [className])}>
         <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
         <div className={cls.links}>
           <Button
@@ -39,7 +39,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             {t('Выйти')}
           </Button>
         </div>
-      </div>
+      </header>
     );
   }
 

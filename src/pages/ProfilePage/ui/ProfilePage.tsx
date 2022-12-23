@@ -19,6 +19,7 @@ import { Country } from 'app/const/common';
 import { ValidateProfileError } from 'entities/Profile/model/types/profile';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
+import { Page } from 'shared/ui/Page/Page';
 
 interface ProfilePageProps {
   className?: string
@@ -79,7 +80,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   }, [dispatch]);
 
   return (
-    <div className={classNames('', {}, [className])}>
+    <Page className={classNames('', {}, [className])}>
       <ProfilePageHeader />
       {validateErrors?.length && validateErrors.map((err) => (
         <Text
@@ -101,7 +102,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         onChangeAvatar={OnChangeAvatar}
         onChangeCountry={onChangeCountry}
       />
-    </div>
+    </Page>
   );
 };
 

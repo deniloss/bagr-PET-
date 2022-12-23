@@ -1,5 +1,6 @@
 .list {
   .card {
+    width: 95%;
     padding: 10px 10px 15px 25px;
     border-radius: 10px;
     background: var(--item-bg);
@@ -64,10 +65,9 @@
 }
 
 .tiles {
-  width: 230px;
-
   .card {
     cursor: pointer;
+    width: 230px;
     padding: 15px;
     border-radius: 10px;
     background: var(--item-bg);
