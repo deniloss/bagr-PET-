@@ -14,32 +14,34 @@ export const ArticleListSkeleton = memo((props: ArticleListSkeletonProps) => {
 
   if (view === ArticleView.LIST) {
     return (
-      <div className={classNames(cls.card, {}, [className, cls[view]])}>
-        <div className={cls.header}>
-          <Skeleton className={cls.avatar} width="20px" height="20px" />
-          <Skeleton className={cls.username} height="20px" width="150px" />
-          <Skeleton className={cls.date} height="20px" width="200px" />
-        </div>
-        <Skeleton className={cls.title} height="30px" width="40%" />
-        <Skeleton className={cls.image} height="200px" width="100%" />
-        <div className={cls.footer}>
-          <Skeleton className={cls.button} height="45px" width="20%" />
-        </div>
+      <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+        <section className={cls.card}>
+          <div className={cls.header}>
+            <Skeleton border="50%" height={30} width={30} />
+            <Skeleton width={150} height={16} className={cls.username} />
+            <Skeleton width={150} height={16} className={cls.date} />
+          </div>
+          <Skeleton width={250} height={24} className={cls.title} />
+          <Skeleton height={200} className={cls.img} />
+          <div className={cls.footer}>
+            <Skeleton height={36} width={200} />
+          </div>
+        </section>
       </div>
     );
   }
 
   return (
-    <div className={classNames(cls.ArticleListSkeleton, {}, [className, cls[view]])}>
-      <div className={cls.card}>
-        <div className={cls.imageWrapper} />
-        <div className={cls.infoWrapper}>
-          <Skeleton className={cls.types} height="15px" width="10%" />
-          <Skeleton className={cls.views} height="15px" width="25%" />
-          <Skeleton className={cls.icon} height="15px" width="10%" />
+    <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+      <section className={cls.card}>
+        <div className={cls.imageWrapper}>
+          <Skeleton width={200} height={200} className={cls.img} />
         </div>
-        <Skeleton className={cls.title} height="30px" width="50%" />
-      </div>
+        <div className={cls.infoWrapper}>
+          <Skeleton width={130} height={16} />
+        </div>
+        <Skeleton width={150} height={16} className={cls.title} />
+      </section>
     </div>
   );
 });

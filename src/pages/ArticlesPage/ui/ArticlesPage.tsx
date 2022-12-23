@@ -10,6 +10,9 @@ import { articlesPageActions, getArticles } from 'pages/ArticlesPage/model/slice
 import { ArticleViewSelector } from 'features/ArticleViewSelector';
 import { getArticlesPageView } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { ArticleView } from 'entities/Article/model/types/article';
+import { getArticleIsLoading } from 'entities/Article/model/selectors/Article';
+import { Page } from 'shared/ui/Page/Page';
+import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage';
 import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
@@ -21,28 +24,36 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const dispatch = useAppDispatch();
   const articles = useSelector(getArticles.selectAll);
   const view = useSelector(getArticlesPageView);
+  const isLoading = useSelector(getArticleIsLoading);
 
   useInitialEffect(() => {
-    dispatch(fetchArticles());
+    dispatch(articlesPageActions.initState());
+    dispatch(fetchArticles({
+      page: 1,
+    }));
   });
+
+  const onLoadNextPart = useCallback(() => {
+    dispatch(fetchNextArticlesPage());
+  }, [dispatch]);
 
   const onChangeView = useCallback((view: ArticleView) => {
     dispatch(articlesPageActions.setView(view));
   }, [dispatch]);
 
   return (
-    <div className={classNames(cls.ArticlesPage, {}, [className])}>
+    <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlesPage, {}, [className])}>
       <ArticleViewSelector
         className={cls.viewSelector}
         onChangeView={onChangeView}
         view={view}
       />
       <ArticleList
-        isLoading={false}
+        isLoading={isLoading}
         view={view}
         articles={articles}
       />
-    </div>
+    </Page>
   );
 };
 
