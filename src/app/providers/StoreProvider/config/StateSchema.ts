@@ -7,16 +7,34 @@ import { ArticleSchema } from 'entities/Article';
 import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
 import { CommentFormSchema } from 'features/AddCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import {
+  AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
+} from '@reduxjs/toolkit';
 
 export interface StateSchema {
   counter: CounterSchema,
   user: userSchema,
-  loginForm: LoginSchema,
-  profile: ProfileSchema,
-  ArticleDetails: ArticleSchema,
-  ArticleDetailsComments: ArticleDetailsCommentSchema,
   CommentForm: CommentFormSchema,
-  ArticlesList: ArticlesPageSchema,
+
+  // async
+  loginForm?: LoginSchema,
+  profile?: ProfileSchema,
+  ArticleDetails?: ArticleSchema,
+  ArticleDetailsComments?: ArticleDetailsCommentSchema,
+  ArticlesList?: ArticlesPageSchema,
+}
+
+export type stateSchemaKey = keyof StateSchema;
+
+export interface ReducerManager {
+  getReducerMap: () => ReducersMapObject<StateSchema>;
+  reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>;
+  add: (key: stateSchemaKey, reducer: Reducer) => void;
+  remove: (key: stateSchemaKey) => void;
+}
+
+export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
+  reducerManager: ReducerManager;
 }
 
 export interface ThunkExtraArg {

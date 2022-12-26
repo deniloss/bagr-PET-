@@ -6,7 +6,10 @@ import { useParams } from 'react-router-dom';
 import { CommentList } from 'entities/Comment/ui/CommentList/CommentList';
 import { Text } from 'shared/ui/Text/Text';
 import { useSelector } from 'react-redux';
-import { getArticleComments } from 'pages/ArticleDetailsPage/model/slice/ArticleDetailsCommentsSlice';
+import {
+  ArticleDetailsCommentsReducer,
+  getArticleComments,
+} from 'pages/ArticleDetailsPage/model/slice/ArticleDetailsCommentsSlice';
 import { getArticleIsLoading } from 'entities/Article/model/selectors/Article';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { fetchCommentsById } from 'pages/ArticleDetailsPage/model/services/fetchCommentsById';
@@ -14,11 +17,16 @@ import { AddCommentForm } from 'features/AddCommentForm';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/services/sendCommentForArticle';
 import { Page } from 'shared/ui/Page/Page';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
   className?: string
 }
+
+const initialReducers: ReducersList = {
+  ArticleDetailsComments: ArticleDetailsCommentsReducer,
+};
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation();
@@ -43,12 +51,14 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     );
   }
   return (
-    <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-      <ArticleDetails id={id} />
-      <Text className={cls.commentTitle} title={t('Комментарии')} />
-      <AddCommentForm sendComment={onSendComment} />
-      <CommentList isLoading={isLoading} comments={comments} />
-    </Page>
+    <DynamicModuleLoader reducers={initialReducers}>
+      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+        <ArticleDetails id={id} />
+        <Text className={cls.commentTitle} title={t('Комментарии')} />
+        <AddCommentForm sendComment={onSendComment} />
+        <CommentList isLoading={isLoading} comments={comments} />
+      </Page>
+    </DynamicModuleLoader>
   );
 };
 
