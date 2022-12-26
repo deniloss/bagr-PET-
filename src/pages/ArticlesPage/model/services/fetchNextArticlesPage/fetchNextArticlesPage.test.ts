@@ -1,13 +1,15 @@
 import { TestAsyncThunk } from 'shared/lib/TestAsyncThunk/TestAsyncThunk';
 import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { fetchArticles } from 'pages/ArticlesPage/model/services/fetchArticles/fetchArticles';
+import { ArticleView } from 'entities/Article/model/types/article';
 
-jest.mock('../fetchArticlesList/fetchArticlesList');
+jest.mock('../fetchArticles/fetchArticles.ts');
 
 describe('fetchNextArticlesPage.test', () => {
   test('success', async () => {
     const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
       ArticlesList: {
+        view: ArticleView.LIST,
         page: 2,
         ids: [],
         entities: {},
@@ -25,6 +27,7 @@ describe('fetchNextArticlesPage.test', () => {
   test('fetchAritcleList not called', async () => {
     const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
       ArticlesList: {
+        view: ArticleView.LIST,
         page: 2,
         ids: [],
         entities: {},
