@@ -11,6 +11,6 @@ interface ArticleTextBlockComponentProps {
 
 export const ArticleTextBlockComponent = ({ className, block }: ArticleTextBlockComponentProps) => (
   <div className={classNames(cls.ArticleTextBlockComponent, {}, [className])}>
-    {block.paragraphs.map((item) => <Text className={cls.textBlock} text={item} />)}
+    {block.paragraphs.map((item, index) => <Text className={cls.textBlock} text={item} key={index} />)}
   </div>
 );
