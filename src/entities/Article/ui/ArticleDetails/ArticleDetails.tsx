@@ -18,6 +18,8 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useNavigate } from 'react-router-dom';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
+import { ArticleReducer } from 'entities/Article/model/slice/ArticleSlice';
 import cls from './ArticleDetails.module.scss';
 import { fetchArticleById } from '../../model/services/fetchArtivleById/fetchArticleById';
 
@@ -25,6 +27,10 @@ interface ArticleDetailsProps {
   className?: string
   id: string
 }
+
+const initialReducers: ReducersList = {
+  ArticleDetails: ArticleReducer,
+};
 
 export const ArticleDetails = ({ className, id }: ArticleDetailsProps) => {
   const { t } = useTranslation();
@@ -103,8 +109,10 @@ export const ArticleDetails = ({ className, id }: ArticleDetailsProps) => {
   }
 
   return (
-    <div className={classNames(cls.ArticleDetails, {}, [className])}>
-      {content}
-    </div>
+    <DynamicModuleLoader reducers={initialReducers}>
+      <div className={classNames(cls.ArticleDetails, {}, [className])}>
+        {content}
+      </div>
+    </DynamicModuleLoader>
   );
 };

@@ -28,6 +28,8 @@ describe('saveProfileData', () => {
   test('success', async () => {
     const thunk = new TestAsyncThunk(saveProfileData, {
       profile: {
+        isLoading: false,
+        readonly: false,
         form: data,
       },
     });
@@ -42,6 +44,8 @@ describe('saveProfileData', () => {
   test('error', async () => {
     const thunk = new TestAsyncThunk(saveProfileData, {
       profile: {
+        isLoading: false,
+        readonly: false,
         form: data,
       },
     });

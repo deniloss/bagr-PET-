@@ -53,6 +53,7 @@ describe('Article.test', () => {
   test('getArticleError(true)', () => {
     const state: DeepPartial<StateSchema> = {
       ArticleDetails: {
+        isLoading: false,
         error: 'true',
       },
     };
@@ -62,6 +63,7 @@ describe('Article.test', () => {
   test('getArticleError(false)', () => {
     const state: DeepPartial<StateSchema> = {
       ArticleDetails: {
+        isLoading: false,
         error: 'false',
       },
     };
@@ -71,6 +73,7 @@ describe('Article.test', () => {
   test('getArticleData', () => {
     const state:DeepPartial<StateSchema> = {
       ArticleDetails: {
+        isLoading: false,
         data: article,
       },
     };

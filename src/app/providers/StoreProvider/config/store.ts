@@ -1,37 +1,35 @@
-import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
+import {
+  CombinedState, configureStore, Reducer, ReducersMapObject,
+} from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
-import { loginReducer } from 'features/AuthByUsername';
-import { profileReducer } from 'entities/Profile';
 import { $api } from 'shared/api/api';
-import { NavigateOptions } from 'react-router';
-import { To } from 'history';
-import { ArticleReducer } from 'entities/Article/model/slice/ArticleSlice';
-import { ArticleDetailsCommentsReducer } from 'pages/ArticleDetailsPage/model/slice/ArticleDetailsCommentsSlice';
 import { CommentFormReducer } from 'features/AddCommentForm';
-import { articlesPageReducer } from 'pages/ArticlesPage/model/slice/articlesPageSlice';
+import { createReducerManager } from 'app/providers/StoreProvider/config/ReducerManager';
+import { scrollSaveSliceReducer } from 'features/scrollSave';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 
-export function createStore(initialState?: StateSchema, navigate?: (to: To, options?: NavigateOptions) => void) {
+export function createStore(
+  initialState?: StateSchema,
+  asyncReducers?: ReducersMapObject<StateSchema>,
+) {
   const extraArg: ThunkExtraArg = {
     api: $api,
-    navigate,
   };
 
   const rootReducers: ReducersMapObject<StateSchema> = {
+    ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
-    loginForm: loginReducer,
-    profile: profileReducer,
-    ArticleDetails: ArticleReducer,
-    ArticleDetailsComments: ArticleDetailsCommentsReducer,
     CommentForm: CommentFormReducer,
-    ArticlesList: articlesPageReducer,
+    scrollSave: scrollSaveSliceReducer,
   };
 
-  return configureStore({
+  const reducerManager = createReducerManager(rootReducers);
+
+  const store = configureStore({
+    reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
     devTools: __IS_DEV__,
-    reducer: rootReducers,
     preloadedState: initialState,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
       thunk: {
@@ -39,6 +37,11 @@ export function createStore(initialState?: StateSchema, navigate?: (to: To, opti
       },
     }),
   });
+
+  // @ts-ignore
+  store.reducerManager = reducerManager;
+
+  return store;
 }
 
 export type AppDispatch = ReturnType<typeof createStore>['dispatch']
