@@ -6,6 +6,7 @@ import { userReducer } from 'entities/User';
 import { $api } from 'shared/api/api';
 import { CommentFormReducer } from 'features/AddCommentForm';
 import { createReducerManager } from 'app/providers/StoreProvider/config/ReducerManager';
+import { scrollSaveSliceReducer } from 'features/scrollSave';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 
 export function createStore(
@@ -21,6 +22,7 @@ export function createStore(
     counter: counterReducer,
     user: userReducer,
     CommentForm: CommentFormReducer,
+    scrollSave: scrollSaveSliceReducer,
   };
 
   const reducerManager = createReducerManager(rootReducers);

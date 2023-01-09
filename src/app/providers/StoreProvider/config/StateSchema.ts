@@ -10,11 +10,13 @@ import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import {
   AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
+import { ScrollSaveSchema } from 'features/scrollSave';
 
 export interface StateSchema {
   counter: CounterSchema,
   user: userSchema,
   CommentForm: CommentFormSchema,
+  scrollSave: ScrollSaveSchema,
 
   // async
   loginForm?: LoginSchema,

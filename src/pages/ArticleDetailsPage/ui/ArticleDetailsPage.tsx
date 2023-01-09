@@ -16,7 +16,7 @@ import { fetchCommentsById } from 'pages/ArticleDetailsPage/model/services/fetch
 import { AddCommentForm } from 'features/AddCommentForm';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/services/sendCommentForArticle';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import cls from './ArticleDetailsPage.module.scss';
 
